@@ -13,6 +13,7 @@ int a, b,c = 0;
 bool pozvistr1[10][10] = {};
 bool pozvistr2[10][10] = {};
 bool pozcorabl1[10][10] = {};
+bool pozcorabl2[10][10] = {};
 //---------------------------------------------------------------------------
 __fastcall TForm2::TForm2(TComponent* Owner)
 	: TForm(Owner)
@@ -36,10 +37,10 @@ void __fastcall TForm2::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 
 			}
 			else{
-            PaintBox1->Canvas->MoveTo(a*50+1,b*50+1);
-		   PaintBox1->Canvas->LineTo(a*50+49,b*50+49);
+			PaintBox1->Canvas->MoveTo(a*50+1,b*50+1);
+			PaintBox1->Canvas->LineTo(a*50+49,b*50+49);
 			}
-            pozvistr1[a][b] = true;
+			pozvistr1[a][b] = true;
 
 		   }
 
@@ -49,12 +50,12 @@ void __fastcall TForm2::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 
 
 void __fastcall TForm2::PaintBox2MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
-          int X, int Y)
+		  int X, int Y)
 {
-         a=X/50; b=Y/50;
+		   a=X/50; b=Y/50;
 		   if (c==1 && a<10 && b<10 && !pozvistr2[a][b]) {
 
-
+			if (!pozcorabl2[a][b]){
 		   PaintBox2->Canvas->MoveTo(a*50+1,b*50+1);
 		   PaintBox2->Canvas->LineTo(a*50+49,b*50+49);
 
@@ -62,7 +63,14 @@ void __fastcall TForm2::PaintBox2MouseDown(TObject *Sender, TMouseButton Button,
 		   PaintBox2->Canvas->LineTo(a*50+1,b*50+49);
 		   c=0;
 		   Label2->Caption="Player 2";
-		   pozvistr2[a][b] = true;
+
+			}
+			else{
+			PaintBox2->Canvas->MoveTo(a*50+1,b*50+1);
+			PaintBox2->Canvas->LineTo(a*50+49,b*50+49);
+			}
+			pozvistr2[a][b] = true;
+
 		   }
 }
 //---------------------------------------------------------------------------

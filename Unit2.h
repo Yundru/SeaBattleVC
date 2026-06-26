@@ -28,5 +28,6 @@ public:		// User declarations
 extern PACKAGE TForm2 *Form2;
 
 extern bool pozcorabl1[10][10];
+extern bool pozcorabl2[10][10];
 //---------------------------------------------------------------------------
 #endif

@@ -17,7 +17,7 @@ object Form1: TForm1
     Top = 128
     Width = 89
     Height = 57
-    Caption = 'Play'
+    Caption = 'Play (pl1/pl2)'
     TabOrder = 0
     OnClick = Button1Click
   end
