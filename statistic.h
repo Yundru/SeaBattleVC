@@ -12,7 +12,7 @@ class Tstat : public TForm
 {
 __published:	// IDE-managed Components
 	TMemo *Memo1;
-	void __fastcall FormActivate(TObject *Sender);
+	void __fastcall Memo1Change(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall Tstat(TComponent* Owner);
