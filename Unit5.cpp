@@ -5,13 +5,12 @@
 #include <vector>
 #include "Unit5.h"
 #include "Unit2.h"
+#include "Unit1.h"
+#include "Unit4.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm5 *Form5;
-
-int Mx2, My2;
-bool move2;
  struct corabl{
 	TRect Rect;
 	TRect pos=Rect;
@@ -131,24 +130,59 @@ void __fastcall TForm5::PaintBox1MouseUp(TObject *Sender, TMouseButton Button, T
 //---------------------------------------------------------------------------
 void __fastcall TForm5::Button1Click(TObject *Sender)
 {
-	   Form2->Show();
-		Form2 ->PaintBox1->Width = 50*10+1;
-	   Form2 ->PaintBox1->Height = 50*10+1;
-	   Form2->PaintBox1->Repaint();
-	   for (int i = 0; i <= 11; i++) {
+	if (playrobot)
+	{
+		Form4 ->Show();
+		Form4 ->PaintBox1->Width = 50*10+1;
+		Form4 ->PaintBox1->Height = 50*10+1;
+		Form4->PaintBox1->Repaint();
+		for (int i = 0; i <= 11; i++)
+		{
 
-		 Form2->PaintBox1->Canvas->MoveTo(0,50*i);
-		 Form2 ->PaintBox1->Canvas->LineTo(50*10,50*i);
+			Form4->PaintBox1->Canvas->MoveTo(0,50*i);
+			Form4 ->PaintBox1->Canvas->LineTo(50*10,50*i);
+
+			Form4->PaintBox1->Canvas->MoveTo(50*i,0);
+			Form4 ->PaintBox1->Canvas->LineTo(50*i,50*10);
+
+		}
+	   Form4 ->PaintBox2->Width = 50*10+1;
+	   Form4 ->PaintBox2->Height = 50*10+1;
+	   Form4->PaintBox2->Repaint();
+	   for (int i = 0; i <= 11; i++)
+	   {
+
+		 Form4->PaintBox2->Canvas->MoveTo(0,50*i);
+		 Form4 ->PaintBox2->Canvas->LineTo(50*10,50*i);
 
 
-		 Form2->PaintBox1->Canvas->MoveTo(50*i,0);
-		 Form2 ->PaintBox1->Canvas->LineTo(50*i,50*10);
+		 Form4->PaintBox2->Canvas->MoveTo(50*i,0);
+		 Form4 ->PaintBox2->Canvas->LineTo(50*i,50*10);
 
 	   }
-	   Form2 ->PaintBox2->Width = 50*10+1;
-	   Form2 ->PaintBox2->Height = 50*10+1;
-	   Form2->PaintBox2->Repaint();
-	   for (int i = 0; i <= 11; i++) {
+	}
+	else
+	{
+        Form2->Show();
+		Form2 ->PaintBox1->Width = 50*10+1;
+		Form2 ->PaintBox1->Height = 50*10+1;
+		Form2->PaintBox1->Repaint();
+		for (int i = 0; i <= 11; i++)
+		{
+
+			Form2->PaintBox1->Canvas->MoveTo(0,50*i);
+			Form2 ->PaintBox1->Canvas->LineTo(50*10,50*i);
+
+
+			Form2->PaintBox1->Canvas->MoveTo(50*i,0);
+			Form2 ->PaintBox1->Canvas->LineTo(50*i,50*10);
+
+		}
+		Form2 ->PaintBox2->Width = 50*10+1;
+		Form2 ->PaintBox2->Height = 50*10+1;
+		Form2->PaintBox2->Repaint();
+		for (int i = 0; i <= 11; i++)
+		{
 
 		 Form2->PaintBox2->Canvas->MoveTo(0,50*i);
 		 Form2 ->PaintBox2->Canvas->LineTo(50*10,50*i);
@@ -156,17 +190,16 @@ void __fastcall TForm5::Button1Click(TObject *Sender)
 
 		 Form2->PaintBox2->Canvas->MoveTo(50*i,0);
 		 Form2 ->PaintBox2->Canvas->LineTo(50*i,50*10);
-
-	   }
-
-
-	   for(int k= corabli2.size()-1; k>=0;k--){
-		  for(int i=corabli2[k].Rect.Left/50-6;i<corabli2[k].Rect.Right/50-6;i++)  {
-			  for(int j=corabli2[k].Rect.Top/50-1;j<corabli2[k].Rect.Bottom/50-1;j++){
-				 pozcorabl2[i][j]=true;
-			  }
-		  }
-	   }
+		}
+		for(int k= corabli2.size()-1; k>=0;k--)
+		{
+			for(int i=corabli2[k].Rect.Left/50-6;i<corabli2[k].Rect.Right/50-6;i++)  {
+				for(int j=corabli2[k].Rect.Top/50-1;j<corabli2[k].Rect.Bottom/50-1;j++){
+					pozcorabl2[i][j]=true;
+				}
+			}
+		}
+	}
 	   Form5->Close();
 }
 

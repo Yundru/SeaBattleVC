@@ -10,9 +10,6 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm3 *Form3;
-
-int Mx, My;
-bool move;
  struct corabl{
 	TRect Rect;
 	TRect pos=Rect;
@@ -160,15 +157,17 @@ void __fastcall TForm3::Button1Click(TObject *Sender)
 
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm3::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
 
+
+
+void __fastcall TForm3::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
 {
    if ((Key == 'R' || Key == 'r') && drag) {
 		 int x=corabli[DragInd].Rect.Right-corabli[DragInd].Rect.Left;
 		 int y=corabli[DragInd].Rect.Bottom-corabli[DragInd].Rect.Top;
 		 corabli[DragInd].Rect.Right+=y-x;
 		 corabli[DragInd].Rect.Bottom+=x-y;
-         PaintBox1->Invalidate();
+		 PaintBox1->Invalidate();
    }
 }
 //---------------------------------------------------------------------------

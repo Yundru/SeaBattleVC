@@ -11,9 +11,8 @@
 #pragma resource "*.dfm"
 TForm4 *Form4;
 int A, B, C = 0;
-bool pozvistrplayer[10][10] = {};
-bool pozvistrrobot[10][10] = {};
-
+bool pozvistrplayer[10][10];
+bool pozvistrrobot[10][10];
 //---------------------------------------------------------------------------
 __fastcall TForm4::TForm4(TComponent* Owner)
 	: TForm(Owner)
