@@ -10,6 +10,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
+Tstat *stat;
 extern int player1schet;
 extern int player1promah;
 extern int player2schet;
@@ -18,18 +19,15 @@ extern int playerschet;
 extern int playerpromah;
 extern int robotschet;
 extern int robotpromah;
-
-Tstat *stat;
 //---------------------------------------------------------------------------
 __fastcall Tstat::Tstat(TComponent* Owner)
 	: TForm(Owner)
 {
 }
 //---------------------------------------------------------------------------
-
 void __fastcall Tstat::FormActivate(TObject *Sender)
 {
-	Memo1->Lines->Clear();
+     Memo1->Lines->Clear();
 
 	// ПРОВЕРКА: Были ли вообще игры?
 	int totalActions = player1schet + player1promah + player2schet + player2promah +
