@@ -37,14 +37,7 @@ object Form5: TForm5
     Height = 36
     Caption = '->start'
     TabOrder = 0
+    TabStop = False
     OnClick = Button1Click
-  end
-  object Button2: TButton
-    Left = 200
-    Top = 450
-    Width = 75
-    Height = 25
-    Caption = 'Button2'
-    TabOrder = 1
   end
 end

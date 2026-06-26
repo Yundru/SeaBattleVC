@@ -37,6 +37,7 @@ object Form3: TForm3
     Height = 36
     Caption = '->2nd player'#39's field'
     TabOrder = 0
+    TabStop = False
     OnClick = Button1Click
   end
 end

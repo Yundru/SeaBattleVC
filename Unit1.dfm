@@ -29,22 +29,13 @@ object Form1: TForm1
     Caption = 'Statistic'
     TabOrder = 1
   end
-  object Button3: TButton
-    Left = 128
-    Top = 40
-    Width = 89
-    Height = 57
-    Caption = #1082#1086#1088#1072#1073#1083#1080#1082#1080
-    TabOrder = 2
-    OnClick = Button3Click
-  end
   object Button4: TButton
     Left = 32
     Top = 216
     Width = 89
     Height = 57
     Caption = 'Play (robot)'
-    TabOrder = 3
+    TabOrder = 2
     OnClick = Button4Click
   end
   object MainMenu1: TMainMenu

@@ -24,7 +24,6 @@ __published:	// IDE-managed Components
 	TMenuItem *help2;
 	TButton *Button1;
 	TButton *Button2;
-	TButton *Button3;
 	TButton *Button4;
 	void __fastcall help2Click(TObject *Sender);
 	void __fastcall Button1Click(TObject *Sender);
@@ -36,5 +35,6 @@ public:		// User declarations
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
+extern bool playrobot;
 //---------------------------------------------------------------------------
 #endif

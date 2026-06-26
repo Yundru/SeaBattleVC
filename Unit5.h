@@ -15,7 +15,6 @@ __published:	// IDE-managed Components
 	TPaintBox *PaintBox1;
 	TButton *Button1;
 	TLabel *Label1;
-	TButton *Button2;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall PaintBox1Paint(TObject *Sender);
