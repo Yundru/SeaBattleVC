@@ -232,8 +232,8 @@
         <FormResources Include="Unit3.dfm"/>
         <FormResources Include="Unit4.dfm"/>
         <FormResources Include="Unit5.dfm"/>
-        <FormResources Include="ABOUT.dfm"/>
         <FormResources Include="Unit1.dfm"/>
+        <FormResources Include="ABOUT.dfm"/>
         <FormResources Include="statistic.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

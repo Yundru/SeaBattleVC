@@ -21,7 +21,6 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 int player1schet = 0;
-int player1promah = 0;
 void __fastcall TForm2::PaintBox1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
 		  int X, int Y)
 {
@@ -29,7 +28,6 @@ void __fastcall TForm2::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 		   if (c==0 && a<10 && b<10 && !pozvistr1[a][b]) {
 
 			if (!pozcorabl1[a][b]){
-			player1promah++;
 		   PaintBox1->Canvas->MoveTo(a*50+1,b*50+1);
 		   PaintBox1->Canvas->LineTo(a*50+49,b*50+49);
 
@@ -40,9 +38,9 @@ void __fastcall TForm2::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 
 			}
 			else{
-            player1schet++;
-			PaintBox1->Canvas->MoveTo(a*50+1,b*50+1);
-			PaintBox1->Canvas->LineTo(a*50+49,b*50+49);
+			player1schet++;
+			PaintBox1->Canvas->Rectangle(a*50+1,b*50+1,a*50+50,b*50+50);
+			
 			}
 			pozvistr1[a][b] = true;
 
@@ -56,7 +54,6 @@ void __fastcall TForm2::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 //---------------------------------------------------------------------------
 
 int player2schet = 0;
-int player2promah = 0;
 void __fastcall TForm2::PaintBox2MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
 		  int X, int Y)
 {
@@ -64,7 +61,6 @@ void __fastcall TForm2::PaintBox2MouseDown(TObject *Sender, TMouseButton Button,
 		   if (c==1 && a<10 && b<10 && !pozvistr2[a][b]) {
 
 			if (!pozcorabl2[a][b]){
-			player2promah++;
 		   PaintBox2->Canvas->MoveTo(a*50+1,b*50+1);
 		   PaintBox2->Canvas->LineTo(a*50+49,b*50+49);
 
@@ -72,11 +68,12 @@ void __fastcall TForm2::PaintBox2MouseDown(TObject *Sender, TMouseButton Button,
 		   PaintBox2->Canvas->LineTo(a*50+1,b*50+49);
 		   c=0;
 		   Label2->Caption="Player 2";
+
 			}
 			else{
 			player2schet++;
-			PaintBox2->Canvas->MoveTo(a*50+1,b*50+1);
-			PaintBox2->Canvas->LineTo(a*50+49,b*50+49);
+			PaintBox2->Canvas->Rectangle(a*50+1,b*50+1,a*50+50,b*50+50);
+
 			}
 			pozvistr2[a][b] = true;
 
@@ -87,6 +84,11 @@ void __fastcall TForm2::PaintBox2MouseDown(TObject *Sender, TMouseButton Button,
 		   }
 }
 //---------------------------------------------------------------------------
+
+
+
+
+
 
 void __fastcall TForm2::FormShow(TObject *Sender)
 {
