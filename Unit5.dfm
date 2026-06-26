@@ -1,7 +1,7 @@
-object Form3: TForm3
+object Form5: TForm5
   Left = 0
   Top = 0
-  Caption = 'Form3'
+  Caption = 'Form5'
   ClientHeight = 489
   ClientWidth = 752
   Color = clBtnFace
@@ -26,17 +26,25 @@ object Form3: TForm3
   object Label1: TLabel
     Left = 320
     Top = 454
-    Width = 91
+    Width = 108
     Height = 15
-    Caption = 'First player'#39's field'
+    Caption = 'Second player'#39's field'
   end
   object Button1: TButton
     Left = 560
     Top = 445
     Width = 113
     Height = 36
-    Caption = '->2nd player'#39's field'
+    Caption = '->start'
     TabOrder = 0
     OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 200
+    Top = 450
+    Width = 75
+    Height = 25
+    Caption = 'Button2'
+    TabOrder = 1
   end
 end

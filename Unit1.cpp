@@ -31,6 +31,11 @@ void __fastcall TForm1::help2Click(TObject *Sender)
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
+	   Form3 ->Show();
+	   Form3 ->PaintBox1->Width = 300+50*10+1;
+	   Form3 ->PaintBox1->Height = 50*10+1+50;
+	   Form3->PaintBox1->Repaint();
+/*
 	   Form2 ->Show();
 	   Form2 ->PaintBox1->Width = 50*10+1;
 	   Form2 ->PaintBox1->Height = 50*10+1;
@@ -58,7 +63,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 		 Form2 ->PaintBox2->Canvas->LineTo(50*i,50*10);
 
 	   }
-
+*/
 }
 //---------------------------------------------------------------------------
 
@@ -110,4 +115,5 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 
 }
 //---------------------------------------------------------------------------
+
 

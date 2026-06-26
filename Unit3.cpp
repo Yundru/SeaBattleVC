@@ -5,6 +5,7 @@
 #include <vector>
 #include "Unit3.h"
 #include "Unit2.h"
+#include "Unit5.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -47,7 +48,7 @@ __fastcall TForm3::TForm3(TComponent* Owner)
 
 void __fastcall TForm3::FormCreate(TObject *Sender)
 {
-    this->DoubleBuffered = true;
+	this->DoubleBuffered = true;
 
   corabli.push_back({TRect(1,50,50,100),});
   corabli.push_back({TRect(100,50,150,100)});
@@ -91,7 +92,6 @@ void __fastcall TForm3::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 		  }
 
 	   }
-
 }
 //---------------------------------------------------------------------------
 
@@ -142,8 +142,24 @@ void __fastcall TForm3::PaintBox1MouseUp(TObject *Sender, TMouseButton Button, T
 
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm3::Button1Click(TObject *Sender)
+{
+	   Form5 ->Show();
+	   Form5 ->PaintBox1->Width = 300+50*10+1;
+	   Form5 ->PaintBox1->Height = 50*10+1+50;
+	   Form5->PaintBox1->Repaint();
+	   Form3->Close();
 
+	   for(int k= corabli.size()-1; k>=0;k--){
+		  for(int i=corabli[k].Rect.Left/50-6;i<corabli[k].Rect.Right/50-6;i++)  {
+			  for(int j=corabli[k].Rect.Top/50-1;j<corabli[k].Rect.Bottom/50-1;j++){
+				 pozcorabl1[i][j]=true;
+			  }
+		  }
+	   }
 
+}
+//---------------------------------------------------------------------------
 void __fastcall TForm3::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
 
 {
@@ -152,51 +168,8 @@ void __fastcall TForm3::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shif
 		 int y=corabli[DragInd].Rect.Bottom-corabli[DragInd].Rect.Top;
 		 corabli[DragInd].Rect.Right+=y-x;
 		 corabli[DragInd].Rect.Bottom+=x-y;
-		 PaintBox1->Invalidate();
+         PaintBox1->Invalidate();
    }
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm3::Button1Click(TObject *Sender)
-{
-
-	   Form2->Show();
-        Form2 ->PaintBox1->Width = 50*10+1;
-	   Form2 ->PaintBox1->Height = 50*10+1;
-	   Form2->PaintBox1->Repaint();
-	   for (int i = 0; i <= 11; i++) {
-
-		 Form2->PaintBox1->Canvas->MoveTo(0,50*i);
-		 Form2 ->PaintBox1->Canvas->LineTo(50*10,50*i);
-
-
-		 Form2->PaintBox1->Canvas->MoveTo(50*i,0);
-		 Form2 ->PaintBox1->Canvas->LineTo(50*i,50*10);
-
-	   }
-	   Form2 ->PaintBox2->Width = 50*10+1;
-	   Form2 ->PaintBox2->Height = 50*10+1;
-	   Form2->PaintBox2->Repaint();
-	   for (int i = 0; i <= 11; i++) {
-
-		 Form2->PaintBox2->Canvas->MoveTo(0,50*i);
-		 Form2 ->PaintBox2->Canvas->LineTo(50*10,50*i);
-
-
-		 Form2->PaintBox2->Canvas->MoveTo(50*i,0);
-		 Form2 ->PaintBox2->Canvas->LineTo(50*i,50*10);
-
-	   }
-
-
-       for(int k= corabli.size()-1; k>=0;k--){
-		  for(int i=corabli[k].Rect.Left/50-6;i<corabli[k].Rect.Right/50-6;i++)  {
-			  for(int j=corabli[k].Rect.Top/50-1;j<corabli[k].Rect.Bottom/50-1;j++){
-				 pozcorabl1[i][j]=true;
-			  }
-		  }
-	   }
-
 }
 //---------------------------------------------------------------------------
 
