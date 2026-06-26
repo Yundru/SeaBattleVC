@@ -13,6 +13,8 @@
 #pragma resource "*.dfm"
 TForm1 *Form1;
 int n=3;
+extern bool pozvistrplayer[10][10];
+extern bool pozvistrrobot[10][10];
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
@@ -73,6 +75,11 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 
 void __fastcall TForm1::Button4Click(TObject *Sender)
 {
+		for (int i = 0; i < 10; i++)
+			for (int j = 0; j < 10; j++) {
+				pozvistrplayer[i][j] = false;
+				pozvistrrobot[i][j] = false;
+			}
 	   Form4 ->Show();
 	   Form4 ->PaintBox1->Width = 50*10+1;
 	   Form4 ->PaintBox1->Height = 50*10+1;

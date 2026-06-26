@@ -16,14 +16,14 @@ object Form4: TForm4
     Top = 96
     Width = 345
     Height = 265
-    OnMouseDown = PaintBox1MouseDown
-    OnMouseUp = PaintBox1MouseUp
   end
   object PaintBox2: TPaintBox
     Left = 591
     Top = 96
     Width = 345
     Height = 265
+    OnMouseDown = PaintBox2MouseDown
+    OnMouseUp = PaintBox2MouseUp
   end
   object Label1: TLabel
     Left = 192
