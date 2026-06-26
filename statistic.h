@@ -1,33 +1,23 @@
 //---------------------------------------------------------------------------
 
-#ifndef Unit4H
-#define Unit4H
+#ifndef statisticH
+#define statisticH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
-#include <Vcl.ExtCtrls.hpp>
 //---------------------------------------------------------------------------
-class TForm4 : public TForm
+class Tstat : public TForm
 {
 __published:	// IDE-managed Components
-	TPaintBox *PaintBox1;
-	TPaintBox *PaintBox2;
-	TLabel *Label1;
-	TLabel *Label2;
-	void __fastcall PaintBox2MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
-          int X, int Y);
-	void __fastcall PaintBox2MouseUp(TObject *Sender, TMouseButton Button, TShiftState Shift,
-          int X, int Y);
-	void __fastcall FormShow(TObject *Sender);
+	TMemo *Memo1;
+	void __fastcall FormActivate(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
-	__fastcall TForm4(TComponent* Owner);
+	__fastcall Tstat(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm4 *Form4;
-extern bool pozcorablplayer[10][10];
-extern bool pozcorablrobot[10][10];
+extern PACKAGE Tstat *stat;
 //---------------------------------------------------------------------------
 #endif

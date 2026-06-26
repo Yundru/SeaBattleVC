@@ -192,6 +192,12 @@
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="statistic.cpp">
+            <Form>stat</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>statistic.h</DependentOn>
+            <BuildOrder>8</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Unit1.cpp">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
@@ -225,9 +231,10 @@
         <FormResources Include="Unit2.dfm"/>
         <FormResources Include="Unit3.dfm"/>
         <FormResources Include="Unit4.dfm"/>
-        <FormResources Include="Unit1.dfm"/>
-        <FormResources Include="ABOUT.dfm"/>
         <FormResources Include="Unit5.dfm"/>
+        <FormResources Include="ABOUT.dfm"/>
+        <FormResources Include="Unit1.dfm"/>
+        <FormResources Include="statistic.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

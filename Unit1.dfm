@@ -28,6 +28,7 @@ object Form1: TForm1
     Height = 57
     Caption = 'Statistic'
     TabOrder = 1
+    OnClick = Button2Click
   end
   object Button4: TButton
     Left = 32

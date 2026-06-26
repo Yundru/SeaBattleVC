@@ -166,6 +166,10 @@ void __fastcall TForm3::PaintBox1MouseUp(TObject *Sender, TMouseButton Button, T
 void __fastcall TForm3::Button1Click(TObject *Sender)
 {
 bool knopka=true;
+for (int i=0; i < 10; i++) {
+			  for(int j=0;j<10;j++)
+			   pozcorabl1[i][j]=false;
+}
  for(int k= corabli.size()-1; k>=0;k--){
 		  for(int i=corabli[k].Rect.Left/50-6;i<corabli[k].Rect.Right/50-6;i++)  {
 			  for(int j=corabli[k].Rect.Top/50-1;j<corabli[k].Rect.Bottom/50-1;j++){
@@ -201,6 +205,21 @@ void __fastcall TForm3::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shif
 		 corabli[DragInd].Rect.Bottom+=x-y;
 		 PaintBox1->Invalidate();
    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm3::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	   for(int k= corabli.size()-1; k>=0;k--){
+		corabli[k].Rect.Right=corabli[k].pos.Right;
+		   corabli[k].Rect.Left=corabli[k].pos.Left;
+		   corabli[k].Rect.Bottom=corabli[k].pos.Bottom;
+		   corabli[k].Rect.Top=corabli[k].pos.Top;
+		}
+		for (int i=0; i < 10; i++) {
+			  for(int j=0;j<10;j++)
+			   nelzya[i][j]=false;
+        }
 }
 //---------------------------------------------------------------------------
 

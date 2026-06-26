@@ -24,6 +24,7 @@ __published:	// IDE-managed Components
 	void __fastcall PaintBox1MouseUp(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y);
 	void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 private:	// User declarations
 public:		// User declarations

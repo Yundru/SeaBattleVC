@@ -103,6 +103,7 @@ void __fastcall TForm5::PaintBox1MouseMove(TObject *Sender, TShiftState Shift, i
 	   }
 }
 //---------------------------------------------------------------------------
+
 void __fastcall TForm5::PaintBox1MouseUp(TObject *Sender, TMouseButton Button, TShiftState Shift,
 		  int X, int Y)
 {
@@ -154,10 +155,30 @@ void __fastcall TForm5::PaintBox1MouseUp(TObject *Sender, TMouseButton Button, T
 		 PaintBox1->Invalidate();
 }
 //---------------------------------------------------------------------------
+
 void __fastcall TForm5::Button1Click(TObject *Sender)
 {
 	if (playrobot)
 	{
+	bool knopkar=true;
+	for (int i=0; i < 10; i++) {
+			  for(int j=0;j<10;j++)
+			   pozcorablplayer[i][j]=false;
+	}
+	for(int k= corabli2.size()-1; k>=0;k--)
+		{
+			for(int i=corabli2[k].Rect.Left/50-6;i<corabli2[k].Rect.Right/50-6;i++)  {
+				for(int j=corabli2[k].Rect.Top/50-1;j<corabli2[k].Rect.Bottom/50-1;j++){
+				if (i<10 && i>=0 && j<10 && j>=0)
+					pozcorablplayer[i][j]=true;
+					else{
+						knopkar=false;
+						break;
+                    }
+				}
+			}
+		}
+		if(knopkar){
 		Form4 ->Show();
 		Form4 ->PaintBox1->Width = 50*10+1;
 		Form4 ->PaintBox1->Height = 50*10+1;
@@ -187,10 +208,15 @@ void __fastcall TForm5::Button1Click(TObject *Sender)
 
 	   }
 	   Form5->Close();
+		}
 	}
 	else
 	{
 	bool knopka2=true;
+    for (int i=0; i < 10; i++) {
+			  for(int j=0;j<10;j++)
+			   pozcorabl2[i][j]=false;
+			   }
     for(int k= corabli2.size()-1; k>=0;k--)
 		{
 			for(int i=corabli2[k].Rect.Left/50-6;i<corabli2[k].Rect.Right/50-6;i++)  {
@@ -205,7 +231,7 @@ void __fastcall TForm5::Button1Click(TObject *Sender)
 			}
 		}
 		if(knopka2){
-        Form2->Show();
+		Form2->Show();
 		Form2 ->PaintBox1->Width = 50*10+1;
 		Form2 ->PaintBox1->Height = 50*10+1;
 		Form2->PaintBox1->Repaint();
@@ -239,6 +265,7 @@ void __fastcall TForm5::Button1Click(TObject *Sender)
 
 }
 
+//Переворот кораблей
 void __fastcall TForm5::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
 
 {
@@ -249,6 +276,23 @@ void __fastcall TForm5::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shif
 		 corabli2[DragInd2].Rect.Bottom+=x2-y2;
 		 PaintBox1->Invalidate();
    }
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm5::FormClose(TObject *Sender, TCloseAction &Action)
+{
+		for(int k= corabli2.size()-1; k>=0;k--){
+		corabli2[k].Rect.Right=corabli2[k].pos.Right;
+		   corabli2[k].Rect.Left=corabli2[k].pos.Left;
+		   corabli2[k].Rect.Bottom=corabli2[k].pos.Bottom;
+		   corabli2[k].Rect.Top=corabli2[k].pos.Top;
+		}
+		for (int i=0; i < 10; i++) {
+			  for(int j=0;j<10;j++)
+			   nelzya2[i][j]=false;
+		}
+		playrobot=false;
 }
 //---------------------------------------------------------------------------
 

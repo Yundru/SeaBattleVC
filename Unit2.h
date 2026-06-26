@@ -20,6 +20,7 @@ __published:	// IDE-managed Components
           int X, int Y);
 	void __fastcall PaintBox2MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y);
+	void __fastcall FormShow(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm2(TComponent* Owner);

@@ -10,6 +10,7 @@ object Form2: TForm2
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnShow = FormShow
   TextHeight = 15
   object PaintBox1: TPaintBox
     Left = 56
