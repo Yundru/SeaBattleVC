@@ -18,6 +18,7 @@ TForm5 *Form5;
  std::vector<corabl> corabli2;
  bool drag2=false;
  int DragInd2=-1, SX2=0, SY2=0;
+  bool nelzya2[10][10]={};
 //---------------------------------------------------------------------------
 __fastcall TForm5::TForm5(TComponent* Owner)
 	: TForm(Owner)
@@ -110,8 +111,17 @@ void __fastcall TForm5::PaintBox1MouseUp(TObject *Sender, TMouseButton Button, T
 		   corabli2[DragInd2].Rect.Top=(corabli2[DragInd2].Rect.Top+25)/50;
 		   corabli2[DragInd2].Rect.Bottom=(corabli2[DragInd2].Rect.Bottom+25)/50;
 		   corabli2[DragInd2].Rect.Right=(corabli2[DragInd2].Rect.Right+25)/50;
+
+		   bool stav2=true;
+		   for(int i=corabli2[DragInd2].Rect.Left-6;i<corabli2[DragInd2].Rect.Right-6;i++)  {
+			  for(int j=corabli2[DragInd2].Rect.Top-1;j<corabli2[DragInd2].Rect.Bottom-1;j++){
+			  if(nelzya2[i][j])
+			  stav2=false;
+			  }
+		   }
+
 		   if   (corabli2[DragInd2].Rect.Left>=6 && corabli2[DragInd2].Rect.Right<=16
-			   &&	 corabli2[DragInd2].Rect.Top>=1 && corabli2[DragInd2].Rect.Bottom<=11 ){
+			   &&	 corabli2[DragInd2].Rect.Top>=1 && corabli2[DragInd2].Rect.Bottom<=11 && stav2){
 		   corabli2[DragInd2].Rect.Right*=50;
 		   corabli2[DragInd2].Rect.Left*=50;
 		   corabli2[DragInd2].Rect.Bottom*=50;
@@ -124,6 +134,22 @@ void __fastcall TForm5::PaintBox1MouseUp(TObject *Sender, TMouseButton Button, T
 		   corabli2[DragInd2].Rect.Top=corabli2[DragInd2].pos.Top;
 
 		   }
+
+           for (int i=0; i < 10; i++) {
+			  for(int j=0;j<10;j++)
+			   nelzya2[i][j]=false;
+		   }
+		   for(int k= corabli2.size()-1; k>=0;k--){
+		  for(int i=corabli2[k].Rect.Left/50-7;i<corabli2[k].Rect.Right/50-5;i++)  {
+			  for(int j=corabli2[k].Rect.Top/50-2;j<corabli2[k].Rect.Bottom/50;j++){
+			   if (i<10 && i>=0 && j<10 && j>=0) {
+				nelzya2[i][j]=true;
+			   }
+
+			  }
+		  }
+	   }
+
 		 DragInd2=-1;
 		 PaintBox1->Invalidate();
 }
@@ -160,9 +186,25 @@ void __fastcall TForm5::Button1Click(TObject *Sender)
 		 Form4 ->PaintBox2->Canvas->LineTo(50*i,50*10);
 
 	   }
+	   Form5->Close();
 	}
 	else
 	{
+	bool knopka2=true;
+    for(int k= corabli2.size()-1; k>=0;k--)
+		{
+			for(int i=corabli2[k].Rect.Left/50-6;i<corabli2[k].Rect.Right/50-6;i++)  {
+				for(int j=corabli2[k].Rect.Top/50-1;j<corabli2[k].Rect.Bottom/50-1;j++){
+				if (i<10 && i>=0 && j<10 && j>=0)
+					pozcorabl2[i][j]=true;
+					else{
+						knopka2=false;
+						break;
+                    }
+				}
+			}
+		}
+		if(knopka2){
         Form2->Show();
 		Form2 ->PaintBox1->Width = 50*10+1;
 		Form2 ->PaintBox1->Height = 50*10+1;
@@ -191,16 +233,10 @@ void __fastcall TForm5::Button1Click(TObject *Sender)
 		 Form2->PaintBox2->Canvas->MoveTo(50*i,0);
 		 Form2 ->PaintBox2->Canvas->LineTo(50*i,50*10);
 		}
-		for(int k= corabli2.size()-1; k>=0;k--)
-		{
-			for(int i=corabli2[k].Rect.Left/50-6;i<corabli2[k].Rect.Right/50-6;i++)  {
-				for(int j=corabli2[k].Rect.Top/50-1;j<corabli2[k].Rect.Bottom/50-1;j++){
-					pozcorabl2[i][j]=true;
-				}
-			}
+		 Form5->Close();
 		}
 	}
-	   Form5->Close();
+
 }
 
 void __fastcall TForm5::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)

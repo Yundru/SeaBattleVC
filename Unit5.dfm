@@ -10,6 +10,7 @@ object Form5: TForm5
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   TextHeight = 15
