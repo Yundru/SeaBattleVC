@@ -13,6 +13,7 @@ int Mx, My;
 bool move;
  struct corabl{
 	TRect Rect;
+	TRect pos=Rect;
  }  ;
  std::vector<corabl> corabli;
  bool drag=false;
@@ -31,12 +32,12 @@ __fastcall TForm3::TForm3(TComponent* Owner)
  void field(){
 		for (int i = 0; i <= 11; i++) {
 
-		 Form3->PaintBox1->Canvas->MoveTo(300+0,50*i);
-		 Form3 ->PaintBox1->Canvas->LineTo(300+50*10,50*i);
+		 Form3->PaintBox1->Canvas->MoveTo(300+0,50+50*i);
+		 Form3 ->PaintBox1->Canvas->LineTo(300+50*10,50+50*i);
 
 
-		 Form3->PaintBox1->Canvas->MoveTo(300+50*i,0);
-		 Form3 ->PaintBox1->Canvas->LineTo(300+50*i,50*10);
+		 Form3->PaintBox1->Canvas->MoveTo(300+50*i,50+0);
+		 Form3 ->PaintBox1->Canvas->LineTo(300+50*i,50+50*10);
 
 	   }
  }
@@ -46,19 +47,20 @@ void __fastcall TForm3::FormCreate(TObject *Sender)
 {
     this->DoubleBuffered = true;
 
-  corabli.push_back({TRect(1,1,50,50)});
-  corabli.push_back({TRect(100,1,150,50)});
-  corabli.push_back({TRect(200,1,250,50)});
-  corabli.push_back({TRect(1,100,50,150)});
+  corabli.push_back({TRect(1,50,50,100),});
+  corabli.push_back({TRect(100,50,150,100)});
+  corabli.push_back({TRect(200,50,250,100)});
+  corabli.push_back({TRect(1,150,50,200)});
 
-  corabli.push_back({TRect(100,100,200,150)});
-  corabli.push_back({TRect(1,200,50,300)});
-  corabli.push_back({TRect(100,200,200,250)});
+  corabli.push_back({TRect(100,150,200,200)});
+  corabli.push_back({TRect(1,250,50,350)});
+  corabli.push_back({TRect(100,250,200,300)});
 
-  corabli.push_back({TRect(200,300,250,450)});
-  corabli.push_back({TRect(1,350,50,500)});
+  corabli.push_back({TRect(200,350,250,500)});
+  corabli.push_back({TRect(1,400,50,550)});
 
-  corabli.push_back({TRect(100,300,150,500)});
+  corabli.push_back({TRect(100,350,150,550)});
+  field();
 }
 //---------------------------------------------------------------------------
 
@@ -83,8 +85,8 @@ void __fastcall TForm3::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 			  DragInd=i;
 			  SX=X;
 			  SY=Y;
-              break;
-          }
+			  break;
+		  }
 
 	   }
 
@@ -92,7 +94,7 @@ void __fastcall TForm3::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 //---------------------------------------------------------------------------
 
 void __fastcall TForm3::PaintBox1MouseMove(TObject *Sender, TShiftState Shift, int X,
-          int Y)
+		  int Y)
 {
 	   if (drag && DragInd!=-1) {
 		   int DeltaX=X-SX;
@@ -115,7 +117,41 @@ void __fastcall TForm3::PaintBox1MouseUp(TObject *Sender, TMouseButton Button, T
           int X, int Y)
 {
 		 drag=false;
+		 corabli[DragInd].Rect.Left=(corabli[DragInd].Rect.Left+25)/50;
+		   corabli[DragInd].Rect.Top=(corabli[DragInd].Rect.Top+25)/50;
+		   corabli[DragInd].Rect.Bottom=(corabli[DragInd].Rect.Bottom+25)/50;
+		   corabli[DragInd].Rect.Right=(corabli[DragInd].Rect.Right+25)/50;
+		   if   (corabli[DragInd].Rect.Left>=6 && corabli[DragInd].Rect.Right<=16
+			   &&	 corabli[DragInd].Rect.Top>=1 && corabli[DragInd].Rect.Bottom<=11 ){
+		   corabli[DragInd].Rect.Right*=50;
+		   corabli[DragInd].Rect.Left*=50;
+		   corabli[DragInd].Rect.Bottom*=50;
+		   corabli[DragInd].Rect.Top*=50;
+		   }
+		   else{
+		   corabli[DragInd].Rect.Right=corabli[DragInd].pos.Right;
+		   corabli[DragInd].Rect.Left=corabli[DragInd].pos.Left;
+		   corabli[DragInd].Rect.Bottom=corabli[DragInd].pos.Bottom;
+		   corabli[DragInd].Rect.Top=corabli[DragInd].pos.Top;
+
+		   }
 		 DragInd=-1;
+		 PaintBox1->Invalidate();
+
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm3::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
+
+{
+   if ((Key == 'R' || Key == 'r') && drag) {
+		 int x=corabli[DragInd].Rect.Right-corabli[DragInd].Rect.Left;
+		 int y=corabli[DragInd].Rect.Bottom-corabli[DragInd].Rect.Top;
+		 corabli[DragInd].Rect.Right+=y-x;
+		 corabli[DragInd].Rect.Bottom+=x-y;
+         PaintBox1->Invalidate();
+   }
 }
 //---------------------------------------------------------------------------
 

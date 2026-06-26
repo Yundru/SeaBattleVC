@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef Unit3H
-#define Unit3H
+#ifndef Unit4H
+#define Unit4H
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
@@ -9,25 +9,22 @@
 #include <Vcl.Forms.hpp>
 #include <Vcl.ExtCtrls.hpp>
 //---------------------------------------------------------------------------
-class TForm3 : public TForm
+class TForm4 : public TForm
 {
 __published:	// IDE-managed Components
 	TPaintBox *PaintBox1;
-	void __fastcall FormCreate(TObject *Sender);
-	void __fastcall PaintBox1Paint(TObject *Sender);
+	TPaintBox *PaintBox2;
+	TLabel *Label1;
+	TLabel *Label2;
 	void __fastcall PaintBox1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y);
-	void __fastcall PaintBox1MouseMove(TObject *Sender, TShiftState Shift, int X, int Y);
 	void __fastcall PaintBox1MouseUp(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y);
-	void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
-
-
 private:	// User declarations
 public:		// User declarations
-	__fastcall TForm3(TComponent* Owner);
+	__fastcall TForm4(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm3 *Form3;
+extern PACKAGE TForm4 *Form4;
 //---------------------------------------------------------------------------
 #endif
