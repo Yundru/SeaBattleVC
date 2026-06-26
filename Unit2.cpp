@@ -12,6 +12,7 @@ TForm2 *Form2;
 int a, b,c = 0;
 bool pozvistr1[10][10] = {};
 bool pozvistr2[10][10] = {};
+bool pozcorabl1[10][10] = {};
 //---------------------------------------------------------------------------
 __fastcall TForm2::TForm2(TComponent* Owner)
 	: TForm(Owner)
@@ -24,7 +25,7 @@ void __fastcall TForm2::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 		   a=X/50; b=Y/50;
 		   if (c==0 && a<10 && b<10 && !pozvistr1[a][b]) {
 
-
+			if (!pozcorabl1[a][b]){
 		   PaintBox1->Canvas->MoveTo(a*50+1,b*50+1);
 		   PaintBox1->Canvas->LineTo(a*50+49,b*50+49);
 
@@ -32,10 +33,16 @@ void __fastcall TForm2::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 		   PaintBox1->Canvas->LineTo(a*50+1,b*50+49);
 		   c=1;
 		   Label1->Caption="Player 1";
-           pozvistr1[a][b] = true;
+
+			}
+			else{
+            PaintBox1->Canvas->MoveTo(a*50+1,b*50+1);
+		   PaintBox1->Canvas->LineTo(a*50+49,b*50+49);
+			}
+            pozvistr1[a][b] = true;
+
 		   }
 
-		   
 }
 
 //---------------------------------------------------------------------------
@@ -59,6 +66,9 @@ void __fastcall TForm2::PaintBox2MouseDown(TObject *Sender, TMouseButton Button,
 		   }
 }
 //---------------------------------------------------------------------------
+
+
+
 
 
 

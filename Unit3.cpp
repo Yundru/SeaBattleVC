@@ -4,6 +4,7 @@
 #pragma hdrstop
 #include <vector>
 #include "Unit3.h"
+#include "Unit2.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -18,6 +19,7 @@ bool move;
  std::vector<corabl> corabli;
  bool drag=false;
  int DragInd=-1, SX=0, SY=0;
+
 //---------------------------------------------------------------------------
 __fastcall TForm3::TForm3(TComponent* Owner)
 	: TForm(Owner)
@@ -74,7 +76,7 @@ void __fastcall TForm3::PaintBox1Paint(TObject *Sender)
 //---------------------------------------------------------------------------
 
 void __fastcall TForm3::PaintBox1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
-          int X, int Y)
+		  int X, int Y)
 {
 	   for(int i= corabli.size()-1; i>=0;i--){
 		  if (corabli[i].Rect.Left <=X &&
@@ -150,8 +152,51 @@ void __fastcall TForm3::FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shif
 		 int y=corabli[DragInd].Rect.Bottom-corabli[DragInd].Rect.Top;
 		 corabli[DragInd].Rect.Right+=y-x;
 		 corabli[DragInd].Rect.Bottom+=x-y;
-         PaintBox1->Invalidate();
+		 PaintBox1->Invalidate();
    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm3::Button1Click(TObject *Sender)
+{
+
+	   Form2->Show();
+        Form2 ->PaintBox1->Width = 50*10+1;
+	   Form2 ->PaintBox1->Height = 50*10+1;
+	   Form2->PaintBox1->Repaint();
+	   for (int i = 0; i <= 11; i++) {
+
+		 Form2->PaintBox1->Canvas->MoveTo(0,50*i);
+		 Form2 ->PaintBox1->Canvas->LineTo(50*10,50*i);
+
+
+		 Form2->PaintBox1->Canvas->MoveTo(50*i,0);
+		 Form2 ->PaintBox1->Canvas->LineTo(50*i,50*10);
+
+	   }
+	   Form2 ->PaintBox2->Width = 50*10+1;
+	   Form2 ->PaintBox2->Height = 50*10+1;
+	   Form2->PaintBox2->Repaint();
+	   for (int i = 0; i <= 11; i++) {
+
+		 Form2->PaintBox2->Canvas->MoveTo(0,50*i);
+		 Form2 ->PaintBox2->Canvas->LineTo(50*10,50*i);
+
+
+		 Form2->PaintBox2->Canvas->MoveTo(50*i,0);
+		 Form2 ->PaintBox2->Canvas->LineTo(50*i,50*10);
+
+	   }
+
+
+       for(int k= corabli.size()-1; k>=0;k--){
+		  for(int i=corabli[k].Rect.Left/50-6;i<corabli[k].Rect.Right/50-6;i++)  {
+			  for(int j=corabli[k].Rect.Top/50-1;j<corabli[k].Rect.Bottom/50-1;j++){
+				 pozcorabl1[i][j]=true;
+			  }
+		  }
+	   }
+
 }
 //---------------------------------------------------------------------------
 
