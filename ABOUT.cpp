@@ -13,3 +13,9 @@ __fastcall TAboutBox::TAboutBox(TComponent* AOwner)
 }
 //---------------------------------------------------------------------
 
+void __fastcall TAboutBox::OKButtonClick(TObject *Sender)
+{
+    Close();
+}
+//---------------------------------------------------------------------------
+

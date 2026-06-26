@@ -11,6 +11,7 @@ object Form5: TForm5
   Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
+  OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   TextHeight = 15

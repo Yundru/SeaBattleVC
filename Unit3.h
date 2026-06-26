@@ -24,6 +24,7 @@ __published:	// IDE-managed Components
           int X, int Y);
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 
 private:	// User declarations
