@@ -4,7 +4,6 @@
 #pragma hdrstop
 #include <vector>
 #include "Unit3.h"
-#include "Unit1.h"
 #include "Unit2.h"
 #include "Unit5.h"
 //---------------------------------------------------------------------------
@@ -33,7 +32,7 @@ __fastcall TForm3::TForm3(TComponent* Owner)
 
  void field(){
 		for (int i = 0; i <= 11; i++) {
-		 Form3->PaintBox1->Color = clSkyBlue;
+
 		 Form3->PaintBox1->Canvas->MoveTo(300+0,50+50*i);
 		 Form3 ->PaintBox1->Canvas->LineTo(300+50*10,50+50*i);
 
@@ -179,7 +178,7 @@ for (int i=0; i < 10; i++) {
 			  else     {
 				  knopka=false;
 				  break;
-			  }
+              }
 
 			  }
 		  }

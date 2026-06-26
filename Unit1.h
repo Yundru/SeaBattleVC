@@ -16,6 +16,12 @@
 class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
+	TMainMenu *MainMenu1;
+	TMenuItem *file1;
+	TMenuItem *N1;
+	TMenuItem *N2;
+	TMenuItem *help1;
+	TMenuItem *help2;
 	TButton *Button1;
 	TButton *Button2;
 	TButton *Button4;
@@ -31,15 +37,5 @@ public:		// User declarations
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
 extern bool playrobot;
-extern bool pozcorablrobot[10][10];
-void ResetStatistics();
-extern int player1schet;
-extern int player1promah;
-extern int player2schet;
-extern int player2promah;
-extern int playerschet;
-extern int playerpromah;
-extern int robotschet;
-extern int robotpromah;
 //---------------------------------------------------------------------------
 #endif

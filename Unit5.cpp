@@ -26,7 +26,6 @@ __fastcall TForm5::TForm5(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
  void field2(){
-		Form5->PaintBox1->Color = clSkyBlue;
 		for (int i = 0; i <= 11; i++) {
 
 		 Form5->PaintBox1->Canvas->MoveTo(300+0,50+50*i);
@@ -183,10 +182,6 @@ void __fastcall TForm5::Button1Click(TObject *Sender)
 		Form4 ->Show();
 		Form4 ->PaintBox1->Width = 50*10+1;
 		Form4 ->PaintBox1->Height = 50*10+1;
-
-		Form4->PaintBox2->Color = clSkyBlue;
-		Form4->PaintBox1->Color = clSkyBlue;
-
 		Form4->PaintBox1->Repaint();
 		for (int i = 0; i <= 11; i++)
 		{
@@ -239,10 +234,6 @@ void __fastcall TForm5::Button1Click(TObject *Sender)
 		Form2->Show();
 		Form2 ->PaintBox1->Width = 50*10+1;
 		Form2 ->PaintBox1->Height = 50*10+1;
-
-		Form2->PaintBox2->Color = clSkyBlue;
-		Form2->PaintBox1->Color = clSkyBlue;
-
 		Form2->PaintBox1->Repaint();
 		for (int i = 0; i <= 11; i++)
 		{

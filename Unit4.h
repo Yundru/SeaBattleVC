@@ -28,5 +28,6 @@ public:		// User declarations
 //---------------------------------------------------------------------------
 extern PACKAGE TForm4 *Form4;
 extern bool pozcorablplayer[10][10];
+extern bool pozcorablrobot[10][10];
 //---------------------------------------------------------------------------
 #endif
