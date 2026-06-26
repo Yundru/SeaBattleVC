@@ -7,6 +7,7 @@
 #include "About.h"
 #include "Unit2.h"
 #include "Unit3.h"
+#include "Unit4.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -64,18 +65,42 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 {
 	   Form3 ->Show();
 	   Form3 ->PaintBox1->Width = 300+50*10+1;
-	   Form3 ->PaintBox1->Height = 50*10+1;
+	   Form3 ->PaintBox1->Height = 50*10+1+50;
 	   Form3->PaintBox1->Repaint();
+	   
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button4Click(TObject *Sender)
+{
+	   Form4 ->Show();
+	   Form4 ->PaintBox1->Width = 50*10+1;
+	   Form4 ->PaintBox1->Height = 50*10+1;
+	   Form4->PaintBox1->Repaint();
 	   for (int i = 0; i <= 11; i++) {
 
-		 Form3->PaintBox1->Canvas->MoveTo(300+0,50*i);
-		 Form3 ->PaintBox1->Canvas->LineTo(300+50*10,50*i);
+		 Form4->PaintBox1->Canvas->MoveTo(0,50*i);
+		 Form4 ->PaintBox1->Canvas->LineTo(50*10,50*i);
 
 
-		 Form3->PaintBox1->Canvas->MoveTo(300+50*i,0);
-		 Form3 ->PaintBox1->Canvas->LineTo(300+50*i,50*10);
+		 Form4->PaintBox1->Canvas->MoveTo(50*i,0);
+		 Form4 ->PaintBox1->Canvas->LineTo(50*i,50*10);
 
 	   }
+	   Form4 ->PaintBox2->Width = 50*10+1;
+	   Form4 ->PaintBox2->Height = 50*10+1;
+	   Form4->PaintBox2->Repaint();
+	   for (int i = 0; i <= 11; i++) {
+
+		 Form4->PaintBox2->Canvas->MoveTo(0,50*i);
+		 Form4 ->PaintBox2->Canvas->LineTo(50*10,50*i);
+
+
+		 Form4->PaintBox2->Canvas->MoveTo(50*i,0);
+		 Form4 ->PaintBox2->Canvas->LineTo(50*i,50*10);
+
+	   }
+
 }
 //---------------------------------------------------------------------------
 

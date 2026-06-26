@@ -11,10 +11,11 @@ object Form3: TForm3
   Font.Name = 'Segoe UI'
   Font.Style = []
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   TextHeight = 15
   object PaintBox1: TPaintBox
-    Left = 23
-    Top = 33
+    Left = 31
+    Top = -7
     Width = 345
     Height = 265
     OnMouseDown = PaintBox1MouseDown

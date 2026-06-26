@@ -15,6 +15,7 @@ __published:	// IDE-managed Components
 	TPaintBox *PaintBox1;
 	TPaintBox *PaintBox2;
 	TLabel *Label1;
+	TLabel *Label2;
 	void __fastcall PaintBox1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
           int X, int Y);
 	void __fastcall PaintBox2MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,

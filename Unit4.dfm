@@ -1,7 +1,7 @@
-object Form2: TForm2
+object Form4: TForm4
   Left = 0
   Top = 0
-  Caption = 'Form2'
+  Caption = 'Form4'
   ClientHeight = 690
   ClientWidth = 1068
   Color = clBtnFace
@@ -17,13 +17,13 @@ object Form2: TForm2
     Width = 345
     Height = 265
     OnMouseDown = PaintBox1MouseDown
+    OnMouseUp = PaintBox1MouseUp
   end
   object PaintBox2: TPaintBox
-    Left = 592
+    Left = 591
     Top = 96
     Width = 345
     Height = 265
-    OnMouseDown = PaintBox2MouseDown
   end
   object Label1: TLabel
     Left = 192
@@ -35,8 +35,8 @@ object Form2: TForm2
   object Label2: TLabel
     Left = 760
     Top = 40
-    Width = 41
+    Width = 32
     Height = 15
-    Caption = 'Player 2'
+    Caption = 'Robot'
   end
 end

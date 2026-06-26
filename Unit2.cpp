@@ -1,6 +1,7 @@
 //---------------------------------------------------------------------------
 
 #include <vcl.h>
+
 #pragma hdrstop
 
 #include "Unit2.h"
@@ -8,7 +9,9 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm2 *Form2;
-int a, b,c=1;
+int a, b,c = 0;
+bool pozvistr1[10][10] = {};
+bool pozvistr2[10][10] = {};
 //---------------------------------------------------------------------------
 __fastcall TForm2::TForm2(TComponent* Owner)
 	: TForm(Owner)
@@ -19,7 +22,7 @@ void __fastcall TForm2::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 		  int X, int Y)
 {
 		   a=X/50; b=Y/50;
-		   if (c==0 && a<10 && b<10 ) {
+		   if (c==0 && a<10 && b<10 && !pozvistr1[a][b]) {
 
 
 		   PaintBox1->Canvas->MoveTo(a*50+1,b*50+1);
@@ -29,7 +32,9 @@ void __fastcall TForm2::PaintBox1MouseDown(TObject *Sender, TMouseButton Button,
 		   PaintBox1->Canvas->LineTo(a*50+1,b*50+49);
 		   c=1;
 		   Label1->Caption="Player 1";
+           pozvistr1[a][b] = true;
 		   }
+
 		   
 }
 
@@ -40,7 +45,7 @@ void __fastcall TForm2::PaintBox2MouseDown(TObject *Sender, TMouseButton Button,
           int X, int Y)
 {
          a=X/50; b=Y/50;
-		   if (c==1 && a<10 && b<10) {
+		   if (c==1 && a<10 && b<10 && !pozvistr2[a][b]) {
 
 
 		   PaintBox2->Canvas->MoveTo(a*50+1,b*50+1);
@@ -49,9 +54,11 @@ void __fastcall TForm2::PaintBox2MouseDown(TObject *Sender, TMouseButton Button,
 		   PaintBox2->Canvas->MoveTo(a*50+49,b*50+1);
 		   PaintBox2->Canvas->LineTo(a*50+1,b*50+49);
 		   c=0;
-		   Label1->Caption="Player 2";
+		   Label2->Caption="Player 2";
+		   pozvistr2[a][b] = true;
 		   }
 }
 //---------------------------------------------------------------------------
+
 
 
